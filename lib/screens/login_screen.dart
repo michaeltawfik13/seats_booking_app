@@ -1,4 +1,6 @@
-import 'package:conditional_builder/conditional_builder.dart';
+//import 'package:conditional_builder/conditional_builder.dart';
+
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -57,7 +59,7 @@ class SocialLoginScreen extends StatelessWidget {
                         Text('LOGIN',
                           style: Theme.of(context).textTheme.headline5,
                         ),
-                        Text('LOGIN now to Communicate with Friends',
+                        Text('Login now to reserve your seat',
                             style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Colors.grey,  //copyWith بعدل بيها علي الاصل بتاعه
                             )
@@ -82,15 +84,7 @@ class SocialLoginScreen extends StatelessWidget {
                             controller: passwordController,
                             type: TextInputType.visiblePassword,
                             suffix: SocialLoginCubit.get(context).suffix,
-                            /*onSubmit: (value)
-                                {
-                                  if(formkey.currentState!.validate())
-                                  {
-                                    ShopLoginCubit.get(context).userLogin(
-                                        email: emialController.text,
-                                        password: passwordController.text);
-                                  }
-                                },*/
+
                             isPassword: SocialLoginCubit.get(context).isPassword,
                             suffixPressed: ()
                             {
@@ -145,6 +139,21 @@ class SocialLoginScreen extends StatelessWidget {
                               navigateTo(context, RegisterationScreen());
                             },
                             child: Text('Register')),
+                        SizedBox(height: 85,),
+                        Center(
+                          child: Column(
+                            children: [
+                              Text('©'),
+                              Text('Michael Tawfik '),
+                              Text('Nader Nagy '),
+                              Text('Peter Ayad '),
+                              Text('Refaat Erian '),
+                            ],
+                          ),
+                        ),
+
+
+
                       ],
                     ),
                   ),

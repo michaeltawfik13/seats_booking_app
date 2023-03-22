@@ -34,13 +34,7 @@ class SocialCubit extends Cubit<SocialStates> {
 
   int CurrentIndex = 0;
 
-  // List<Widget> screens = [
-  //   NewsFeedScreen(),
-  //   ChatsScreen(),
-  //   NewPOstScreen(),
-  //   UsersScreen(),
-  //   SettingsScreen(),
-  // ];
+
 
   void updateSeat({
     required String? uId,
@@ -63,11 +57,13 @@ class SocialCubit extends Cubit<SocialStates> {
     required String? name,
     required String? phone,
     required String? email,
+    required String? chName,
   }) {
     TicketUserModel model = TicketUserModel(
       name: name!,
       phone: phone!,
       uId: userModel!.uId,
+      chName: userModel!.chName,
       email: userModel!.uId,
     );
     FirebaseFirestore.instance

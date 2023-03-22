@@ -1,4 +1,6 @@
-import 'package:conditional_builder/conditional_builder.dart';
+
+//import 'package:conditional_builder/conditional_builder.dart';
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticketres/Cubit/register_cubit/registerCubit.dart';
@@ -16,6 +18,7 @@ class RegisterationScreen extends StatelessWidget {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var phoneController = TextEditingController();
+  var chNameController = TextEditingController();
 
 
   @override
@@ -28,9 +31,10 @@ class RegisterationScreen extends StatelessWidget {
           if(state is SocialCreateUserSuccessState)
           {
             navigateAndFinish(context, MyHomePage());
+            showToast(text: 'Congratulations', state: ToastStates.SUCCESS);
           } else
           {
-            showToast(text: 'Error through Registration', state: ToastStates.ERROR);
+            //showToast(text: 'Error through Registration', state: ToastStates.ERROR);
           }
         },
         builder: (context,state)
@@ -50,7 +54,7 @@ class RegisterationScreen extends StatelessWidget {
                           Text('Register',
                             style: Theme.of(context).textTheme.headline5,
                           ),
-                          Text('Register now to Communicate with Friends',
+                          Text('Register now to reserve your seat',
                               style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                 color: Colors.grey,  //copyWith بعدل بيها علي الاصل بتاعه
                               )
@@ -91,15 +95,7 @@ class RegisterationScreen extends StatelessWidget {
                               controller: passwordController,
                               type: TextInputType.visiblePassword,
                               suffix: SocialRegitserCubit.get(context).suffix,
-                              /*onSubmit: (value)
-                                  {
-                                    if(formkey.currentState!.validate())
-                                    {
-                                      SocialLoginCubit.get(context).userLogin(
-                                          email: emialController.text,
-                                          password: passwordController.text);
-                                    }
-                                  },*/
+
                               isPassword: SocialRegitserCubit.get(context).isPassword,
                               suffixPressed: ()
                               {
@@ -131,7 +127,24 @@ class RegisterationScreen extends StatelessWidget {
                               labelText: 'Phone Number',
                               prefix: Icons.phone),
                           SizedBox(
+                            height: 30,),
+
+                          defaultFormField(
+                              controller: chNameController,
+                              type: TextInputType.text,
+                              validate: (String value)
+                              {
+                                if(value.isEmpty)
+                                {
+                                  return "Church Name must not be Empty";
+                                }
+                              },
+                              labelText: 'اسم الكنيسه',
+                              prefix: Icons.church),
+
+                          SizedBox(
                             height: 15,),
+
                           ConditionalBuilder(
                             condition: state is! SocialRegisterLoadingState,
                             builder: (context) => Container(
@@ -147,7 +160,8 @@ class RegisterationScreen extends StatelessWidget {
                                         email: emailController.text,
                                         password: passwordController.text,
                                         phone: phoneController.text,
-                                        isEmailVerified: false);
+                                        chName: chNameController.text ,
+                                        isEmailVerified: false, );
 
                                   }
 

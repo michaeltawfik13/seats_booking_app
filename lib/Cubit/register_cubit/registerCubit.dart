@@ -16,7 +16,8 @@ class SocialRegitserCubit extends Cubit<SocialRegisterStates> {
     required String? email,
     required String? password,
     required String? phone,
-    required bool isEmailVerified,
+    required String? chName,
+    required bool? isEmailVerified,
   }) {
     emit(SocialRegisterLoadingState());
     FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -26,7 +27,9 @@ class SocialRegitserCubit extends Cubit<SocialRegisterStates> {
         name: name,
         email: email,
         phone: phone,
+        chName: chName,
         uId: value.user!.uid,
+
 
 
       );
@@ -42,12 +45,14 @@ class SocialRegitserCubit extends Cubit<SocialRegisterStates> {
     required String? name,
     required String? email,
     required String? phone,
+    required String? chName,
     required String? uId,
   }) {
     TicketUserModel model = TicketUserModel(
       name: name!,
       email: email!,
       phone: phone!,
+      chName: chName!,
       uId: uId!,
 
 

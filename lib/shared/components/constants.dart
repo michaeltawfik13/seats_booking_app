@@ -41,4 +41,4 @@ void printfullText(String text)
 
 String token='';
 
-String uId='';
+String? uId='';

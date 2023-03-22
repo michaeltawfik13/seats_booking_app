@@ -1,5 +1,5 @@
 class SeatsModel {
-  late String uId;
+  late String? uId;
   late String status;
 
   SeatsModel({

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ticketres/screens/webview.dart';
+import 'package:ticketres/shared/components.dart';
 
 import '../const.dart';
 
@@ -11,15 +13,18 @@ class RedRoundedActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: callback as void Function()?,
-      child: Container(
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
-        decoration: BoxDecoration(color: kActionColor, borderRadius: BorderRadius.circular(15.0)),
-        child: Text(text,
-            style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.white, letterSpacing: 1.0)),
-      ),
-    );
+    return MaterialButton(
+        onPressed: ()
+    {
+      navigateTo(context, Web_Screen());
+    },child:
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.red
+          ),
+            child: Text('احجز تذكرتك الان',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),)),
+
+      );
   }
 }

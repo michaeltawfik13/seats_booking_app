@@ -3,6 +3,7 @@ class TicketUserModel
   late String name;
   late String email;
   late String phone;
+  late String chName;
   late String uId;
 
 
@@ -11,6 +12,7 @@ class TicketUserModel
     required this.name,
     required this.email,
     required this.phone,
+    required this.chName,
     required this.uId,
 
   });
@@ -20,6 +22,7 @@ class TicketUserModel
     name = json['name'];
     email = json['email'];
     phone = json['phone'];
+    chName = json['chName'];
     uId = json['uId'];
 
   }
@@ -31,6 +34,7 @@ class TicketUserModel
         'name':name,
         'email':email,
         'phone':phone,
+        'chName':chName,
         'uId':uId,
 
       };

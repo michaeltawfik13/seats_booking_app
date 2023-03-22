@@ -8,7 +8,7 @@
 PRODUCT_NAME = ticketres
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.ticketres
+PRODUCT_BUNDLE_IDENTIFIER = com.barbara.seket_safar
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.

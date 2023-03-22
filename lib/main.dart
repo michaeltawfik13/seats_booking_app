@@ -10,10 +10,10 @@ import 'package:ticketres/Cubit/cubit/cubit.dart';
 import 'package:ticketres/Cubit/cubit/states.dart';
 import 'package:ticketres/Cubit/login_cubit/cubit.dart';
 import 'package:ticketres/Cubit/login_cubit/states.dart';
-import 'package:ticketres/screens/book_seat.dart';
 import 'package:ticketres/screens/home_screen.dart';
 import 'package:ticketres/screens/login_screen.dart';
 import 'package:ticketres/screens/splash_screen.dart';
+import 'package:ticketres/screens/webview.dart';
 import 'package:ticketres/shared/components/constants.dart';
 import 'package:ticketres/shared/network/local/cache_helper.dart';
 import 'package:ticketres/shared/network/remote/dio_helper.dart';
@@ -67,7 +67,6 @@ class MyApp extends StatelessWidget {
   {
     return MultiBlocProvider(
       providers: [
-
         BlocProvider(
             create: (BuildContext context) => SocialCubit()..getUsers()..getUserData()),
       ],
@@ -79,7 +78,6 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: lightTheme,
                 darkTheme: darkTheme,
-
                 //Colors.black),
                 //themeMode: AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
                 themeMode: ThemeMode.light,

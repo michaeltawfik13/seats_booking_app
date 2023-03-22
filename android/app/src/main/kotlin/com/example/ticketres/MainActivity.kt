@@ -1,4 +1,4 @@
-package com.example.ticketres
+package com.barbara.seket_safar
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -112,22 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       );
                     }),
-                // Expanded(
-                //     child: ListView.builder(
-                //         scrollDirection: Axis.horizontal,
-                //         shrinkWrap: true,
-                //         itemCount: movies.length,
-                //         itemBuilder: (context, index) {
-                //           return MovieCard(
-                //               title: movies[index].title,
-                //               imageLink: movies[index].imageURL,
-                //               active: index == widget.index ? true : false,
-                //               callBack: () {
-                //                 setState(() {
-                //                   widget.index = index;
-                //                 });
-                //               });
-                //         })),
+
 
               ],
             ),
